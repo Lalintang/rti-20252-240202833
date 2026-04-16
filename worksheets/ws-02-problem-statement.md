@@ -67,33 +67,33 @@ Masalah riset yang layak harus memenuhi 5 kriteria:
 PROBLEM STATEMENT BUILDER
 
 Domain & Konteks
-  Domain   : ____________________
-  Konteks  : ____________________
+  Domain   : Teknologi Informasi (Pariwisata Digital)
+  Konteks  : Penerapan smart tourism dalam meningkatkan pengalaman wisata
 
 System Context
-  Input       : ____________________
-  Process     : ____________________
-  Output      : ____________________
-  Outcome     : ____________________
-  Constraints : ____________________
-  Stakeholders: ____________________
+  Input       : Data wisata, informasi destinasi, teknologi (aplikasi, IoT, dll)
+  Process     : Pengolahan data dan penyajian informasi melalui sistem smart tourism
+  Output      : Informasi wisata yang mudah diakses pengguna
+  Outcome     : Meningkatnya pengalaman dan kepuasan wisatawan
+  Constraints : Keterbatasan infrastruktur, jaringan, dan kesiapan teknologi
+  Stakeholders: Wisatawan, pemerintah, pelaku industri pariwisata
 
 Fenomena → Problem
-  Fenomena yang diamati             : ____________________
-  Gejala (symptom) yang terukur     : ____________________
-  Masalah yang didiagnosis          : ____________________
-  Masalah riset (researchable)      : ____________________
-  Variabel yang terukur             : ____________________
+  Fenomena yang diamati             : Perkembangan teknologi mendorong digitalisasi di bidang pariwisata
+  Gejala (symptom) yang terukur     : Banyak sistem smart tourism belum optimal dan belum merata
+  Masalah yang didiagnosis          : Kurangnya pemahaman dan penerapan teknologi secara efektif
+  Masalah riset (researchable)      : Belum ada evaluasi yang jelas terkait efektivitas smart tourism dalam meningkatkan pengalaman wisata
+  Variabel yang terukur             : Tingkat kepuasan pengguna, kemudahan akses, dan kualitas informasi
 
 Problem Quality Check
-  [ ] Clarity — Apakah satu orang membaca akan paham?
-  [ ] Measurability — Apakah ada metrik kuantitatif?
-  [ ] Relevance — Apakah penting untuk domain?
-  [ ] Testability — Apakah bisa gagal?
-  [ ] Impact — Apakah ada kontribusi jika terjawab?
+  [✓] Clarity — Apakah satu orang membaca akan paham?
+  [✓] Measurability — Apakah ada metrik kuantitatif?
+  [✓] Relevance — Apakah penting untuk domain?
+  [✓] Testability — Apakah bisa gagal?
+  [✓] Impact — Apakah ada kontribusi jika terjawab?
 
-Problem Statement (1 paragraf):
-  ____________________
+Problem Statement (1 paragraf): Perkembangan teknologi informasi mendorong penerapan konsep smart tourism dalam bidang pariwisata untuk meningkatkan pengalaman wisatawan. Namun, penerapan tersebut belum sepenuhnya optimal dan belum merata di berbagai daerah. Hal ini disebabkan oleh kurangnya evaluasi yang jelas terhadap efektivitas penggunaan teknologi dalam smart tourism. Oleh karena itu, diperlukan penelitian untuk mengukur sejauh mana penerapan smart tourism dapat meningkatkan kepuasan dan pengalaman wisatawan berdasarkan variabel seperti kemudahan akses, kualitas informasi, dan tingkat kepuasan pengguna.
+
 ```
 
 ---
@@ -102,19 +102,18 @@ Problem Statement (1 paragraf):
 
 Pilih satu topik di bidang TI yang diminati. Transformasikan melalui 5 tahap Problem Formation Model.
 
-**Topik awal:** ________________________________________
+**Topik awal:** Smart Tourism
 
 | Tahap | Hasil |
 |-------|-------|
-| Reality | *Contoh: Aplikasi e-commerce sering ditinggalkan saat checkout* |
-| Observed Issue (Symptom) | *Contoh: Bounce rate checkout 68%* |
-| Diagnosed Problem (Root Cause) | |
-| Researchable Problem | |
-| Measurable Variable | |
+| Reality | Perkembangan teknologi digunakan dalam sektor pariwisata |
+| Observed Issue (Symptom) | Penerapan smart tourism belum merata dan belum optimal |
+| Diagnosed Problem (Root Cause) | Kurangnya evaluasi dan pengukuran efektivitas teknologi |
+| Researchable Problem | Bagaimana pengaruh smart tourism terhadap pengalaman wisatawan |
+| Measurable Variable | Kepuasan pengguna, kemudahan akses, kualitas layanan |
 
-**Apakah terjebak solution-first thinking?** [ ] Ya / [ ] Tidak
-> Jika ya, kembali ke tahap mana? ________________________
-
+**Apakah terjebak solution-first thinking?** [ ] Ya / [✓] Tidak
+> Jika ya, kembali ke tahap mana? Karena dimulai dari fenomena dulu, bukan langsung solusi
 ---
 
 ## Latihan 2 — System Context Decomposition
@@ -123,14 +122,14 @@ Gambarkan konteks sistem dari masalah riset di Latihan 1.
 
 | Komponen | Deskripsi |
 |----------|----------|
-| Input | *Contoh: Request HTTP dari browser pengguna* |
-| Process | |
-| Output | |
-| Outcome | |
-| Constraints | |
-| Stakeholders | |
+| Input | Data destinasi wisata, informasi pengguna |
+| Process | Pengolahan data melalui aplikasi atau sistem smart tourism |
+| Output | Informasi wisata yang akurat dan mudah diakses |
+| Outcome | Peningkatan pengalaman dan kepuasan wisatawan |
+| Constraints | Infrastruktur teknologi terbatas, jaringan internet |
+| Stakeholders | Wisatawan, pemerintah, pelaku usaha |
 
-**Komponen mana yang paling relevan dengan masalah riset?** _______________
+**Komponen mana yang paling relevan dengan masalah riset?** Process dan Outcome
 
 ---
 
@@ -140,18 +139,17 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Clarity | *Contoh: 4 — cukup jelas tapi perlu spesifikasi dataset* | |
-| Measurability | | |
-| Relevance | | |
-| Testability | | |
-| Impact | | |
+| Clarity | 4 | Sudah jelas tapi masih bisa dipersempit lagi |
+| Measurability | 4 | Ada variabel, tapi belum detail metode ukurnya |
+| Relevance | 5 | Sangat penting di bidang pariwisata digital |
+| Testability | 4 | Bisa diuji, tapi perlu desain eksperimen |
+| Impact | 5 | Berdampak pada peningkatan kualitas pariwisata |
 
-**Skor total:** _____ / 25
+**Skor total:** 22 / 25
 
 **Problem statement versi final (1 paragraf):**
-> ___________________________________________________
-> ___________________________________________________
-
+> Penerapan smart tourism sebagai bentuk digitalisasi dalam bidang pariwisata bertujuan untuk meningkatkan pengalaman wisatawan melalui pemanfaatan teknologi informasi. Namun, implementasi smart tourism saat ini belum optimal dan belum merata, sehingga efektivitasnya masih belum dapat diukur secara jelas. Oleh karena itu, diperlukan penelitian untuk menganalisis pengaruh penerapan smart tourism terhadap kepuasan dan pengalaman wisatawan dengan menggunakan variabel yang terukur seperti kemudahan akses, kualitas informasi, dan tingkat kepuasan pengguna.
+> 
 ---
 
 ## Refleksi
@@ -159,5 +157,5 @@ Evaluasi problem statement yang sudah dibuat menggunakan 5 kriteria.
 > Bandingkan "masalah" yang biasa ditemui saat coding (bug, error) dengan masalah riset. Apa perbedaan fundamental dalam cara mendefinisikan dan mendekati keduanya?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Masalah saat coding biasanya berupa bug atau error yang jelas terlihat, misalnya program tidak jalan atau output salah. Jadi pendekatannya langsung ke solusi, yaitu mencari letak kesalahan lalu memperbaikinya supaya sistem bisa berjalan dengan benar.
+> Sedangkan masalah riset tidak selalu terlihat secara langsung, tapi harus dicari dulu akar masalahnya dari suatu fenomena. Dalam riset, masalah harus didefinisikan dengan jelas, punya variabel yang bisa diukur, dan harus bisa diuji benar atau salah. Pendekatannya juga lebih sistematis dan tidak langsung ke solusi, tapi fokus ke memahami dan membuktikan masalah tersebut.
