@@ -61,25 +61,26 @@ Dalam DSR, artefak **bukan tujuan akhir** — ia adalah instrumen untuk menghasi
 ## Template A.1 — Research Mindset Self-Assessment
 
 ```
-Nama Peneliti    : ____________________
-Tanggal          : ____________________
+Nama Peneliti    : Egalian Lalintang
+Tanggal          : 16 April 2026
 
 1. Ketika membaca klaim "metode X 95% akurat":
-   - Pertanyaan pertama saya: ____________________
-   - Data yang dibutuhkan untuk verifikasi: ____________________
+   - Pertanyaan pertama saya: Akurasi 95% itu dihitung pakai dataset apa? dan apakah datanya seimbang atau tidak?
+   - Data yang dibutuhkan untuk verifikasi: Dataset yang digunakan, metode pengujian (train-test atau cross validation),serta perbandingan dengan metode lain sebagai baseline.
 
 2. Posisi paradigma:
-   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [ ] Design Science  [ ] Mixed
-   - Alasan: ____________________
-
+   - Pendekatan: [ ] Positivis  [ ] Interpretivis  [✓] Design Science  [ ] Mixed
+   - Alasan: Karena penelitian membahas penerapan teknologi (smart tourism) sebagai solusi,jadi lebih fokus ke pembangunan konsep/artefak dan pemanfaatannya, bukan hanya uji hipotesis saja.
 3. Identifikasi distorsi:
-   - Asumsi tersembunyi: ____________________
-   - Sumber bias potensial: ____________________
-   - Langkah mitigasi: ____________________
+   - Asumsi tersembunyi: Smart tourism dianggap selalu memberikan dampak positif bagi semua pihak.
+   - Sumber bias potensial: Data hanya berasal dari studi literatur tanpa data lapangan,jadi bisa bias dari penulis sebelumnya.
+
+   - Langkah mitigasi: Menambahkan data empiris (observasi atau survey),serta membandingkan dengan kondisi nyata di lapangan.
 
 4. Komitmen etika:
-   - Data yang tidak akan dimanipulasi: ____________________
-   - Batasan yang diakui sejak awal: ____________________
+   - Data yang tidak akan dimanipulasi: Semua data hasil penelitian dan referensi jurnal yang digunakan.
+
+   - Batasan yang diakui sejak awal: Penelitian hanya berdasarkan studi literatur,sehingga hasilnya belum tentu bisa digeneralisasi ke semua kondisi.
 ```
 
 ---
@@ -93,23 +94,24 @@ Pilih satu paper riset di bidang TI yang mengklaim "metode X meningkatkan perfor
 > **Contoh domain TI:** "Deteksi anomali lalu-lintas jaringan menggunakan CNN — akurasi meningkat 94% vs baseline SVM 87%." Distorsi potensial: apakah dataset normal/anomali seimbang? Apakah hanya diuji pada satu vendor traffic?
 
 **Paper yang dipilih:**
-> Judul: _______________________________________________
-> Penulis (Tahun): ______________________________________
-> Sumber/Link DOI: _____________________________________
-
+> Judul: Konsep Smart Tourism sebagai Implementasi Digitalisasi di Bidang Pariwisata
+> Penulis (Tahun): Fauziah Hanum dkk.(2020)
+> Sumber/Link DOI: Jurnal Tornare
 | Tahap | Apa yang Dilakukan | Potensi Distorsi |
 |-------|-------------------|-----------------|
-| Reality → Data | *Contoh: Kumpulkan log server 30 hari* | *Contoh: Hanya ambil jam sibuk* |
-| Data → Processing | | |
-| Processing → Analysis | | |
-| Analysis → Inference | | |
-| Inference → Knowledge | | |
+| Reality → Data | Peneliti mengambil data dari berbagai jurnal (studi literatur) tentang smart tourism | Data tidak langsung dari lapangan → bisa tidak merepresentasikan kondisi nyata |
+| Data → Processing | Data dari berbagai sumber dikumpulkan dan dirangkum | Pemilihan sumber bisa bias (hanya ambil yang mendukung) |
+| Processing → Analysis | Data dianalisis secara deskriptif untuk menjelaskan konsep smart tourism | Tidak ada analisis kuantitatif → rawan subjektivitas |
+| Analysis → Inference | Disimpulkan bahwa smart tourism adalah solusi terbaik untuk pariwisata | Generalisasi terlalu luas tanpa pembuktian eksperimen |
+| Inference → Knowledge | Dihasilkan pengetahuan bahwa smart tourism meningkatkan pengalaman dan daya saing | Klaim belum tentu berlaku di semua kondisi (external validity lemah) |
 
-**Distorsi paling besar di tahap:** ________________________
+**Distorsi paling besar di tahap:** Processing → Analysis
 
 **Dua distorsi spesifik yang teridentifikasi:**
-1. ___________________________________________________
-2. ___________________________________________________
+1. Bias sumber (literature bias)
+Peneliti hanya menggunakan studi literatur tanpa validasi langsung ke lapangan, jadi bisa aja referensinya cuma yang mendukung konsep smart tourism.
+2. Overgeneralization (generalisasi berlebihan)
+Kesimpulan bilang smart tourism adalah “solusi terbaik”, padahal tidak diuji secara empiris di semua kondisi atau daerah.
 
 ---
 
@@ -119,30 +121,29 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 
 | Perspektif | Analisis |
 |------------|---------|
-| Kejujuran ilmiah | *Contoh: Laporkan kedua versi (dengan dan tanpa outlier)* |
-| Transparansi | |
-| Peer review | |
+| Kejujuran ilmiah | Data outlier tidak boleh langsung dihapus hanya supaya hasil signifikan. Harus dilaporkan dua-duanya (pakai dan tanpa outlier).|
+| Transparansi |Peneliti wajib menjelaskan kenapa data outlier dihapus atau tidak, termasuk dampaknya ke hasil penelitian.|
+| Peer review |Reviewer biasanya akan mempertanyakan alasan penghapusan data, jadi harus ada justifikasi yang jelas dan logis.|
 
 **Keputusan akhir dan justifikasi:**
-> ___________________________________________________
+> Data tetap dilaporkan secara lengkap (dengan dan tanpa outlier),karena menghapus data tanpa alasan kuat bisa dianggap manipulasi. Kalau outlier dihapus, harus ada alasan yang jelas (misalnya error pengukuran),bukan karena ingin hasilnya signifikan.
 
 ---
 
 ## Latihan 3 — Posisi Paradigma
 
-**Topik riset:** ________________________________________
+**Topik riset:** Penerapan Smart Tourism berbasis teknologi dalam meningkatkan pengalaman wisata
 
 > **Skala 1–5:** 1 = tidak sesuai sama sekali dengan topik ini, 5 = sangat sesuai dan dominan digunakan pada riset bertopik serupa.
 
 | Kriteria | Positivis | Interpretivis | Design Science |
 |----------|-----------|---------------|----------------|
-| Kesesuaian dengan topik (1–5) | *Contoh: 4 — topik kuantitatif, cocok uji hipotesis* | *Contoh: 2 — topik tidak studi makna/konteks* | *Contoh: 5 — membangun artefak untuk uji klaim* |
-| Jenis data yang dikumpulkan | *Metrik numerik, log eksperimen* | *Wawancara, observasi kualitatif* | *Hasil uji artefak, komparasi kinerja* |
-| Limitasi paradigma | | | |
+| Kesesuaian dengan topik (1–5) |3 — bisa dipakai kalau mau uji data | 2 — kurang fokus ke makna | 5 — paling cocok karena membahas penerapan teknologi |
+| Jenis data yang dikumpulkan | Data numerik, statistik wisatawan | Wawancara, pengalaman pengguna | Hasil implementasi sistem, fitur teknologi |
+| Limitasi paradigma | Butuh data kuantitatif yang jelas | Cenderung subjektif | Kadang kurang kuat di pembuktian empiris |
 
-**Paradigma yang dipilih:** _____________________________
-**Alasan:** ____________________________________________
-
+**Paradigma yang dipilih:** Design Science
+**Alasan:** Karena penelitian ini lebih fokus pada konsep dan penerapan teknologi (smart tourism) sebagai solusi, jadi lebih cocok ke design science yang menekankan pembangunan dan pemanfaatan sistem/konsep.
 ---
 
 ## Refleksi
@@ -150,5 +151,5 @@ Skenario: Seorang peneliti menemukan bahwa jika 3 data point outlier dihapus, ha
 > Sebelum membaca materi ini, apakah pernah mempertanyakan klaim "95% akurat"? Setelah memahami rantai distorsi, pertanyaan apa yang sekarang akan diajukan saat membaca paper?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Sebelum membaca materi ini, biasanya saya langsung percaya kalau ada klaim seperti “akurasi 95%” tanpa mikir panjang. Tapi setelah memahami adanya kemungkinan distorsi, sekarang saya jadi lebih kritis.
+> Pertanyaan yang akan saya ajukan misalnya: datanya dari mana, apakah metode pengujiannya benar, apakah hasilnya bisa diterapkan di kondisi lain, dan apakah ada bias dalam penelitian tersebut.
