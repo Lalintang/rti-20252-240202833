@@ -61,39 +61,45 @@ Membandingkan deep learning 2024 dengan decision tree sederhana tanpa justifikas
 ```
 LITERATURE MAPPING
 
-Topik      : ____________________
-Database   : ____________________
-Query      : ____________________
-Tahun      : ____________________
-Hasil awal : ____ paper → Screening → ____ paper final
+Topik      : Smart Tourism berbasis teknologi
+Database   : Google Scholar
+Query      : "smart tourism digitalization tourism ICT"
+Tahun      : 2014–2020
+Hasil awal : 15 paper → Screening → 5 paper final
 
 Literature Matrix (concept-centric):
 
 | Study | Tahun | Method | Data | Result | Limitation |
-|-------|-------|--------|------|--------|------------|
-|       |       |        |      |        |            |
+| Hanum et al. | 2020 |Kualitatif (literature review)|Studi literatur|Smart tourism meningkatkan pengalaman wisata|Smart tourism meningkatkan pengalaman wisata|
+|  Gajdosik    | 2018 |  Konseptual |   Literatur   |   Smart tourism sebagai evolusi teknologi pariwisata     |     Tidak diuji langsung        |
+|  Femenia-Serra | 2019 |  Konseptual |   Literatur   |   Smart tourism meningkatkan experience     |    Fokus teori        |
+|  Lee et al. | 2017  |  Model analisis     |  Data wisatawan   |  Ada dimensi teknologi smart tourism    |    Terbatas pada lokasi tertentu      |
+|   Guo et al. | 2014 |  IoT approach |  Data sistem | IoT mendukung smart tourism  |  Implementasi terbatas |
 
 Pola yang ditemukan:
-  Metode dominan     : ____________________
-  Dataset umum       : ____________________
-  Limitasi berulang  : ____________________
-
+  Metode dominan     : Kualitatif dan konseptual
+  Dataset umum       : Studi literatur dan data terbatas
+  Limitasi berulang  : Tidak ada pengujian empiris langsung
 GAP IDENTIFICATION
 
-Gap 1: [Jenis: performance / method / data / context]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+Gap 1: [Jenis: Data Gap + Method Gap]
+  Deskripsi    : Sebagian besar penelitian tentang smart tourism hanya menggunakan studi literatur dan pendekatan konseptual, tanpa didukung data empiris atau pengukuran kuantitatif secara langsung.
 
-Gap 2: [Jenis: ____]
-  Deskripsi    : ____________________
-  Bukti        : ____________________
-  Signifikansi : ____________________
+  Bukti        : Dari beberapa paper yang dianalisis (Hanum et al., 2020; Gajdosik, 2018; Femenia-Serra, 2019)metode yang digunakan dominan kualitatif dan tidak melakukan pengujian langsung di lapangan.
+
+  Signifikansi : Tanpa data empiris, klaim bahwa smart tourism dapat meningkatkan pengalaman wisata masih belum kuat. Penelitian lanjutan diperlukan agar hasilnya lebih valid, terukur, dan bisa dibuktikan secara nyata.
+
+Gap 2: [Jenis: Context Gap]
+  Deskripsi    : Penerapan smart tourism belum banyak diuji pada berbagai konteks wilayah, khususnya di negara berkembang seperti Indonesia.
+
+  Bukti        : Beberapa penelitian hanya dilakukan pada lokasi tertentu atau bersifat umum, sehingga belum mencerminkan kondisi di berbagai daerah dengan infrastruktur yang berbeda.
+
+  Signifikansi : Perbedaan kondisi infrastruktur dan kesiapan teknologi dapat mempengaruhi keberhasilan smart tourism, sehingga penting untuk diuji di berbagai konteks agar hasilnya lebih relevan dan aplikatif.
 
 Baseline Selection:
 | Baseline | Relevansi | Representatif | Source |
-|----------|-----------|---------------|--------|
-|          |           |               |        |
+|Model konseptual Smart Tourism|Membahas konsep smart tourism yang sama|Banyak digunakan dalam penelitian sebelumnya|Gajdosik (2018)|
+| Model dimensi Smart Tourism Technology | Mengukur pengalaman pengguna dalam smart tourism | Digunakan untuk analisis pengalaman wisatawan |Lee et al. (2017)|
 ```
 
 ---
@@ -102,21 +108,19 @@ Baseline Selection:
 
 Gunakan topik riset dari WS-02. Cari minimal 5 paper relevan menggunakan Google Scholar atau database lain.
 
-**Topik riset:** ________________________________________
-**Query pencarian:** ____________________________________
-**Database:** ___________________________________________
-
+**Topik riset:** Smart Tourism dalam meningkatkan pengalaman wisata
+**Query pencarian:** "smart tourism ICT experience tourism"
+**Database:** Google Scholar
 | # | Study | Tahun | Method | Dataset | Result | Limitasi |
 |---|-------|-------|--------|---------|--------|----------|
-| 1 | *Contoh: Rahman et al.* | *2023* | *CNN* | *ImageNet subset* | *Acc 91%* | *Hanya 3 kelas* |
-| 2 | | | | | | |
-| 3 | | | | | | |
-| 4 | | | | | | |
-| 5 | | | | | | |
+| 1 |Hanum et al.|2020|Kualitatif|Literatur|Meningkatkan pengalaman wisata |Tidak empiris|
+| 2 |Gajdosik |2018 |Konseptual |Literatur |Evolusi digital tourism |Tidak diuji|
+| 3 |Femenia-Serra |2019 |Konseptual |Literatur |Experience meningkat |Teoritis|
+| 4 |Lee et al. |2017 |Model analisis |Wisatawan |Ada dimensi teknologi |Terbatas lokasi|
+| 5 |Guo et al. |2014 |IoT |Sistem |Teknologi mendukung |Implementasi terbatas|
 
-**Pola yang terlihat — Metode dominan:** ___________________
-**Limitasi yang berulang:** ______________________________
-
+**Pola yang terlihat — Metode dominan:** Kualitatif dan konseptual
+**Limitasi yang berulang:** Kurangnya data empiris dan pengujian langsung
 ---
 
 ## Latihan 2 — Gap Identification
@@ -125,15 +129,14 @@ Berdasarkan tabel di Latihan 1, identifikasi gap.
 
 | Jenis Gap | Ditemukan? | Gap Statement |
 |-----------|-----------|---------------|
-| Performance Gap | [ ] Ya / [ ] Tidak | *Contoh: Akurasi turun di bawah 80% untuk kelas minoritas* |
-| Method Gap | [ ] Ya / [ ] Tidak | |
-| Data Gap | [ ] Ya / [ ] Tidak | |
-| Context Gap | [ ] Ya / [ ] Tidak | |
+| Performance Gap | [ ] Ya / [✓] Tidak |-|
+| Method Gap | [✓] Ya / [ ] Tidak |Belum banyak penelitian menggunakan metode kuantitatif untuk mengukur efektivitas smart tourism |
+| Data Gap | [✓] Ya / [ ] Tidak |Sebagian besar penelitian hanya menggunakan studi literatur tanpa data nyata |
+| Context Gap | [✓] Ya / [ ] Tidak |Belum banyak diuji di berbagai daerah, khususnya negara berkembang |
 
-**Gap utama yang dipilih:** _____________________________
+**Gap utama yang dipilih:** Data Gap + Method Gap
 **Mengapa gap ini penting (bukan sekadar "belum ada yang meneliti")?**
-> ___________________________________________________
-
+> Karena tanpa data empiris dan metode pengukuran yang jelas, klaim bahwa smart tourism meningkatkan pengalaman wisata masih belum terbukti secara nyata. Jadi penelitian perlu dilakukan untuk memberikan bukti yang lebih kuat dan bisa diuji.
 ---
 
 ## Latihan 3 — Baseline Selection
@@ -142,12 +145,11 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 
 | # | Baseline | Mengapa Relevan | Mengapa Representatif | Apakah SOTA? | Sumber |
 |---|----------|----------------|----------------------|-------------|--------|
-| 1 | *Contoh: RF + TF-IDF* | *Task sama: klasifikasi teks* | *Dipakai 6 dari 10 paper* | *Bukan, tapi common practice* | *Lee et al., 2022* |
-| 2 | | | | | |
+| 1 |Model konseptual smart tourism |Sama-sama membahas smart tourism |Banyak digunakan di penelitian |Bukan |Gajdosik (2018) |
+| 2 |Model dimensi teknologi smart tourism |Mengukur pengalaman pengguna |Digunakan dalam studi wisatawan |Mendekati |Lee et al. (2017) |
 
-**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [ ] Tidak
-> Justifikasi: ________________________________________
-
+**Apakah pemilihan baseline ini bisa dianggap straw man?** [ ] Ya / [✓] Tidak
+> Justifikasi: Karena baseline yang dipilih relevan dan memang digunakan dalam penelitian sebelumnya, bukan sengaja memilih metode yang lemah.
 ---
 
 ## Refleksi
@@ -155,5 +157,5 @@ Pilih 2 baseline dari literatur yang sudah dibaca.
 > Apa perbedaan antara "belum ada yang meneliti ini" (klaim tanpa bukti) dengan research gap yang valid? Bagaimana cara membuktikan bahwa sebuah gap benar-benar ada?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Klaim “belum ada yang meneliti ini” biasanya hanya asumsi tanpa bukti yang jelas. Sedangkan research gap yang valid harus didukung dari hasil membaca beberapa penelitian sebelumnya dan menemukan pola atau kekurangan yang sama.
+> Cara membuktikan gap itu ada adalah dengan melakukan pencarian literatur secara sistematis, membandingkan beberapa paper, lalu menunjukkan bagian mana yang belum diteliti atau masih memiliki keterbatasan.
