@@ -72,9 +72,9 @@ Literature Matrix (concept-centric):
 | Study | Tahun | Method | Data | Result | Limitation |
 | Hanum et al. | 2020 |Kualitatif (literature review)|Studi literatur|Smart tourism meningkatkan pengalaman wisata|Smart tourism meningkatkan pengalaman wisata|
 |  Gajdosik    | 2018 |  Konseptual |   Literatur   |   Smart tourism sebagai evolusi teknologi pariwisata     |     Tidak diuji langsung        |
-|  Femenia-Serra | 2019 |  Konseptual |   Literatur   |   Smart tourism meningkatkan experience     |    Fokus teori        |
-|  Lee et al. | 2017  |  Model analisis     |  Data wisatawan   |  Ada dimensi teknologi smart tourism    |    Terbatas pada lokasi tertentu      |
-|   Guo et al. | 2014 |  IoT approach |  Data sistem | IoT mendukung smart tourism  |  Implementasi terbatas |
+| Femenia-Serra | 2019 |  Konseptual |   Literatur   |   Smart tourism meningkatkan experience     |    Fokus teori        |
+| Lee et al. | 2017  |  Model analisis     |  Data wisatawan   |  Ada dimensi teknologi smart tourism    |    Terbatas pada lokasi tertentu      |
+|  Guo et al. | 2014 |  IoT approach |  Data sistem | IoT mendukung smart tourism  |  Implementasi terbatas |
 
 Pola yang ditemukan:
   Metode dominan     : Kualitatif dan konseptual
