@@ -66,19 +66,19 @@ Metrik harus ditentukan **sebelum** eksperimen. Memilih metrik setelah melihat d
 ```
 VARIABLE & METRIC DEFINITION
 
-Research Question: ____________________
+Research Question: Apakah dimensi Smart Tourism Technology (Informativeness, Accessibility, Interactivity, Personalization) berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
 
 | Variabel | Tipe | Konsep | Metrik | Skala | Satuan | Cara Mengukur | Justifikasi |
 |----------|------|--------|--------|-------|--------|---------------|-------------|
-|          | IV   |        |        |       |        |               |             |
-|          | DV   |        |        |       |        |               |             |
-|          | CV   |        |        |       |        |               |             |
+|Smart Tourism Tech (STT)    | IV   |Kualitas layanan teknologi digital pariwisata|Rata-rata skor dimensi STT|Ordinal|Skor (1-5)|Kuesioner dengan skala Likert 5 poin|Standar pengukuran kualitas sistem informasi (Delone & McLean)|
+|Kepuasan Wisatawan          | DV   |Respon afektif setelah menggunakan layanan|Skor kepuasan keseluruhan|Ordinal|Skor (1-5)|Kuesioner pasca-kunjungan|Metrik psikometrik standar dalam riset perilaku konsumen|
+|Frekuensi Kunjungan         | CV   |Tingkat keakraban dengan destinasi|Jumlah kunjungan dalam 1 tahun terakhir|Ratio|Kali|Pertanyaan demografi kuesioner|Pengalaman masa lalu dapat membiaskan persepsi terhadap teknologi baru|
 
 Alignment Check:
   RQ → Concept → Variable → Metric → Data → Result
-  [ ] Setiap langkah terdokumentasi
-  [ ] Tidak ada "lompatan logis"
-  [ ] Metrik mengukur apa yang dimaksud (construct validity)
+  [✓] Setiap langkah terdokumentasi
+  [✓] Tidak ada "lompatan logis"
+  [✓] Metrik mengukur apa yang dimaksud (construct validity)
 ```
 
 ---
@@ -87,16 +87,15 @@ Alignment Check:
 
 Gunakan RQ dari WS-04. Definisikan variabel dan metriknya.
 
-**RQ:** __________________________________________________
-
+**RQ:** Apakah STT berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
 | Variabel | Tipe | Konsep Abstrak | Metrik Konkret | Skala (NOIR) | Satuan |
 |----------|------|---------------|----------------|-------------|--------|
-| *Contoh: Jenis model* | *IV* | *Pendekatan klasifikasi* | *Categorical: CNN vs RF* | *Nominal* | *—* |
-| | DV | | | | |
-| | CV | | | | |
+|Dimensi STT | IV | Kualitas Informasi & Akses | Skor rata-rata 4 dimensi STT | Ordinal | Skor |
+|Pengalaman Wisata | DV |Kepuasan Pengguna |Skor Indeks Kepuasan |Ordinal |Skor |
+|Usia Wisatawan | CV |Literasi Digital |Kelompok umur |Ordinal |Tahun (Range) |
 
-**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [ ] Tidak
-> Jika ya, di mana? ____________________________________
+**Apakah ada lompatan logis dalam rantai?** [ ] Ya / [✓] Tidak
+> Jika ya, di mana? 
 
 ---
 
@@ -106,15 +105,15 @@ Evaluasi metrik DV yang dipilih di Latihan 1 menggunakan 3 kriteria.
 
 | Kriteria | Skor (1-5) | Justifikasi |
 |----------|-----------|-------------|
-| Representative | *Contoh: 4 — F1-Score mewakili keseimbangan precision-recall* | |
-| Sensitive | | |
-| Feasible | | |
+| Representative | 5 | Skala Likert secara luas diterima untuk mewakili persepsi subyektif manusia terhadap layanan digital. |
+| Sensitive | 3 | Skala 1-5 terkadang kurang sensitif (responden cenderung pilih tengah). Skala 1-7 atau 1-10 bisa lebih peka. |
+| Feasible | 5 | Sangat mudah dikumpulkan melalui survei online dan cepat diisi oleh responden. |
 
-**Apakah perlu secondary metric?** [ ] Ya / [ ] Tidak
-> Jika ya, apa dan mengapa? _____________________________
+**Apakah perlu secondary metric?** [✓] Ya / [ ] Tidak
+> Jika ya, apa dan mengapa? Perlu metrik "Net Promoter Score (NPS)" (keinginan merekomendasikan) untuk memvalidasi apakah kepuasan tersebut berujung pada loyalitas, bukan sekadar "puas saat itu saja".
 
 **Contoh kasus ceiling effect untuk metrik ini:**
-> ___________________________________________________
+> Jika kuesioner diberikan tepat saat wisatawan mendapat diskon besar, semua orang mungkin menjawab "5" (sangat puas), sehingga data tidak bisa membedakan pengaruh teknologi yang sebenarnya karena skor sudah "mentok" di atas.
 
 ---
 
@@ -124,10 +123,10 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 
 | Dimensi | Pertanyaan | Jawaban | Strategi Mitigasi |
 |---------|-----------|---------|------------------|
-| Completeness | *Apakah semua data point terkumpul?* | | |
-| Consistency | *Apakah ada kontradiksi internal?* | | |
-| Validity | *Apakah benar-benar mengukur yang dimaksud?* | | |
-| Representativeness | *Apakah sampel mewakili populasi target?* | | |
+| Completeness | Apakah semua data point terkumpul? | Berisiko ada jawaban kosong pada kuesioner panjang | Mengaktifkan fitur "Required" pada form online. |
+| Consistency | Apakah ada kontradiksi internal? | Responden mungkin menjawab asal (skor 5 di semua kolom) | Menambahkan reverse-coded questions untuk mengecek konsistensi jawaban |
+| Validity | Apakah benar-benar mengukur yang dimaksud? | Mungkin mengukur "kesenangan" bukan "efektivitas teknologi" | Melakukan uji validitas konstruk (CFA) sebelum analisis utama |
+| Representativeness | Apakah sampel mewakili populasi target? | Hanya menjangkau wisatawan yang melek gadget (bias) | Melakukan penyebaran survei di berbagai titik lokasi destinasi (bukan hanya via medsos) |
 
 ---
 
@@ -136,5 +135,5 @@ Bayangkan data yang akan dikumpulkan dari eksperimen. Evaluasi 4 dimensi kualita
 > Mengapa memilih metrik setelah melihat data dianggap p-hacking? Apa bedanya dengan eksplorasi data yang sah?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Memilih metrik setelah melihat data (p-hacking) dianggap tidak etis karena peneliti cenderung memilih metrik yang hanya menunjukkan hasil signifikan (p < 0,05) agar hipotesisnya diterima, sehingga menipu realitas ilmiah. Ini seperti menembakkan panah ke tembok, lalu baru menggambar lingkaran target di sekeliling panah tersebut.
+> Bedanya dengan eksplorasi data yang sah: Eksplorasi data bertujuan untuk mencari pola baru atau membangkitkan hipotesis untuk penelitian berikutnya, sedangkan metrik dalam pengujian hipotesis (konfirmatori) harus ditetapkan di awal sebagai janji objektifitas peneliti bahwa hasil "gagal" pun akan tetap dilaporkan.
