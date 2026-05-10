@@ -67,25 +67,25 @@ Jika variabel tidak bisa di-map ke komponen apapun → arsitektur perlu didesain
 ```
 SYSTEM-EXPERIMENT MAPPING
 
-Research Question: ____________________
+Research Question: Apakah dimensi Smart Tourism Technology (Informativeness, Accessibility, Interactivity, Personalization) berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
 
 Variable → Component Mapping:
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi/Pengukuran |
 |----------|------|-----------------|---------------------------|
-|          | IV   |                 |                           |
-|          | DV   |                 |                           |
-|          | CV   |                 |                           |
+| STT Dimensions| IV   |UI/UX & Content Module (Informativeness, Access, dsb)|Fitur aplikasi yang diaktifkan atau konten informasi yang dipersonalisasi|
+| Kepuasan Wisatawan| DV   |Survey Engine / Feedback Module|Kuesioner Likert yang muncul otomatis setelah user mencoba fitur sistem|
+| Frekuensi Kunjungan| CV   |User Profile / Log History|Data dari database yang dikunci (filter hanya untuk user tertentu) agar tidak bias|
 
 4 Prinsip Desain:
-  [ ] Traceability — Setiap komponen bisa ditelusuri ke variabel
-  [ ] Variable Isolation — IV bisa diubah tanpa mengubah CV
-  [ ] Measurement Integration — Pengukuran DV built-in
-  [ ] Reproducibility — Setup bisa direkonstruksi
+  [✓] Traceability — etiap fitur aplikasi (misal: menu navigasi) mewakili dimensi Accessibility
+  [✓] Variable Isolation — Kamu bisa menguji satu dimensi (misal: hanya fitur Personalization) tanpa mengganggu fitur lainnya
+  [✓] Measurement Integration — Form penilaian kepuasan tertanam langsung di dalam aplikasi
+  [✓] Reproducibility — Aplikasi dapat dideploy ulang dengan konfigurasi fitur yang sama oleh peneliti lain
 
 Experimental Setup:
-  Input data     : ____________________
-  Parameter      : ____________________
-  Output format  : ____________________
+  Input data     : Data profil wisatawan (usia, domisili, frekuensi kunjungan) dan respons interaksi real-time user terhadap fitur aplikasi Smart Tourism (klik, durasi baca, dan penggunaan fitur peta).
+  Parameter      : Parameter dalam penelitian ini dikunci melalui beberapa pengaturan ketat, mulai dari kontrol status aktif-nonaktif pada modul fitur (Informativeness, Accessibility, Interactivity, dan Personalization) hingga penggunaan skala Likert 1-5 untuk mengukur persepsi pengguna secara konsisten. Validitas hasil ditentukan dengan ambang signifikansi P-value < 0,05 untuk pengujian hipotesis, dengan target sampel minimal 100 responden guna menjamin kekuatan statistik dan akurasi data dalam menggambarkan pengaruh teknologi terhadap pengalaman wisatawan.
+  Output format  : Output format dalam penelitian ini disajikan dalam bentuk dataset mentah berbasis file .csv atau .xlsx yang merangkum seluruh jawaban kuesioner dan log aktivitas pengguna secara sistematis. Data tersebut kemudian ditransformasikan ke dalam laporan statistik yang mencakup tabel koefisien regresi, nilai T-test, dan R-Square untuk menguji signifikansi pengaruh teknologi terhadap kepuasan wisatawan. Sebagai bentuk interpretasi visual, hasil analisis akan dilengkapi dengan grafik batang atau diagram radar yang memetakan perbandingan kontribusi setiap dimensi teknologi guna mempermudah penarikan kesimpulan ilmiah.
 ```
 
 ---
@@ -94,15 +94,15 @@ Experimental Setup:
 
 Gunakan RQ dan variabel dari WS-05. Petakan ke komponen sistem.
 
-**RQ:** __________________________________________________
+**RQ:** Apakah dimensi Smart Tourism Technology (Informativeness, Accessibility, Interactivity, Personalization) berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
 
 | Variabel | Tipe | Komponen Sistem | Cara Manipulasi / Pengukuran |
 |----------|------|-----------------|---------------------------|
-| *Contoh: Jenis model* | *IV* | *Modul classifier (swap RF ↔ CNN)* | *Ganti config `model_type`* |
-| | DV | | |
-| | CV | | |
+|Dimensi STT| IV | Feature Modules (Informasi, Peta, Chat, Profil) | Mengaktifkan/menonaktifkan modul tertentu melalui dashboard admin atau config file |
+|Kepuasan Wisatawan| DV | Feedback Engine (Pop-up Survey/Rating) | Rekam skor Likert (1-5) yang diinput user setelah mencoba fitur ke dalam database |
+|Usia & Frekuensi| CV | User Profile DB | Melakukan filter data (query SQL) agar analisis hanya fokus pada kelompok tertentu guna menghindari bias |
 
-**Apakah semua variabel bisa di-map?** [ ] Ya / [ ] Tidak
+**Apakah semua variabel bisa di-map?** [✓] Ya / [ ] Tidak
 > Jika tidak, komponen apa yang perlu ditambahkan? _________
 
 ---
@@ -113,14 +113,14 @@ Evaluasi desain sistem terhadap 4 prinsip.
 
 | Prinsip | Status | Bukti / Penjelasan |
 |---------|--------|-------------------|
-| Traceability | *Contoh: ✅ — setiap modul punya label variabel* | |
-| Modularity | | |
-| Controllability | | |
-| Measurability | | |
+| Traceability | ✅ | Modul "Rekomendasi" dalam aplikasi jelas merupakan perwujudan dari variabel Personalization |
+| Modularity | ✅ | Fitur Chatbot (Interactivity) bisa dimatikan via admin panel tanpa merusak fitur peta |
+| Controllability | ✅ | Lokasi wisata yang ditampilkan bisa dikontrol melalui konfigurasi database (hanya destinasi digital tertentu) |
+| Measurability | ✅ | Sistem merekam berapa lama user melihat informasi (metrik tambahan) dan skor kepuasan akhir |
 
-**Prinsip mana yang paling sulit dipenuhi?** _______________
+**Prinsip mana yang paling sulit dipenuhi?** Variable Isolation (Modularity)
 **Strategi untuk mengatasinya:**
-> ___________________________________________________
+> Memastikan kode aplikasi tidak saling bergantung (tightly coupled). Menggunakan arsitektur modular sehingga jika satu fitur (misal: peta) error, fitur informasi (teks) tetap bisa diuji secara terpisah.
 
 ---
 
@@ -130,15 +130,14 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 
 | Kondisi | Komponen A | Komponen B | Komponen C | Hasil yang Diharapkan |
 |---------|-----------|-----------|-----------|----------------------|
-| Full | *Contoh: ✅ CNN* | *Contoh: ✅ Temporal features* | *Contoh: ✅ Z-score norm* | *Baseline penuh* |
-| – A | ❌ (ganti RF) | ✅ | ✅ | |
-| – B | ✅ | ❌ (tanpa temporal) | ✅ | |
-| – C | ✅ | ✅ | ❌ (tanpa normalisasi) | |
+| Full | ✅ Aktif| ✅ Aktif | ✅ Aktif  | Baseline Penuh: Kepuasan tertinggi |
+| – A | ❌ Nonaktif | ✅ | ✅ | Mengukur seberapa penting Accessibility bagi user |
+| – B | ✅ | ❌ Nonaktif | ❌ Nonaktif | Mengukur dampak hilangnya Personalization |
+| – C | ✅ | ✅ | ❌ Nonaktif | Mengukur dampak hilangnya Informativeness |
 
-**Komponen mana yang diprediksi paling berkontribusi?** _____
+**Komponen mana yang diprediksi paling berkontribusi?** Informasi Detail (C).
 **Mengapa?**
-> ___________________________________________________
-
+> Sesuai teori Smart Tourism, wisatawan datang untuk mencari informasi. Tanpa informasi yang akurat (Informativeness), fitur canggih seperti peta atau rekomendasi tidak akan berguna bagi mereka.
 ---
 
 ## Refleksi
@@ -146,5 +145,5 @@ Jika sistem memiliki 3 komponen utama, rencanakan ablation study.
 > Apa risiko jika sistem dibangun seperti produk (monolitik, fitur lengkap) lalu baru dilakukan eksperimen? Mengapa arsitektur modular penting untuk riset?
 
 **Jawaban:**
-> ___________________________________________________
-> ___________________________________________________
+> Risikonya adalah "Confounding Variables". Jika aplikasinya monolitik dan user merasa tidak puas, kita tidak tahu bagian mana yang salah—apakah karena informasinya buruk, petanya sulit dibuka, atau desainnya jelek. Kita tidak bisa menarik kesimpulan ilmiah yang spesifik.
+> Arsitektur modular penting karena memungkinkan peneliti untuk mengisolasi variabel. Dengan mematikan/menyalakan fitur tertentu, kita bisa membuktikan secara empiris fitur mana yang benar-benar memberikan dampak signifikan pada kepuasan user.
