@@ -68,36 +68,36 @@ Ancaman validitas harus diidentifikasi **sebelum** eksperimen dan mitigasinya di
 ```
 EXPERIMENT DESIGN
 
-Research Question : ____________________
-Hypothesis        : ____________________
-Tipe Eksperimen   : [ ] Comparison  [ ] Ablation  [ ] Parameter
+Research Question : Apakah dimensi Smart Tourism Technology (Informativeness, Accessibility, Interactivity, Personalization) berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
+Hypothesis        : Wisatawan yang pake sistem dengan fitur lengkap (ada Personalization) bakal punya skor kepuasan yang lebih tinggi dibanding yang cuma pake fitur standar.
+Tipe Eksperimen   : [ ] Comparison  [✓] Ablation  [ ] Parameter
 
 Kondisi Eksperimen:
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control |           |          |             |
-| Treatment |         |          |             |
+| Control |Aplikasi standar tanpa fitur custom |Info, Akses, Interaksi |Destinasi sama, device sama, waktu akses dibatasi 15 menit |
+| Treatment |Aplikasi full fitur (ada rekomendasi)|Info, Akses, Interaksi, Personalization |Destinasi sama, device sama, waktu akses dibatasi 15 menit |
 
 Fairness Checklist:
-  [ ] Dataset identik untuk semua kondisi
-  [ ] Preprocessing setara
-  [ ] Tuning effort setara
-  [ ] Environment identik
-  [ ] Metrik evaluasi sama
+  [✓] Dataset identik untuk semua kondisi
+  [✓] Preprocessing setara
+  [✓] Tuning effort setara
+  [✓] Environment identik
+  [✓] Metrik evaluasi sama
 
-Threat Analysis:
+Threat Analysis: 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal    |                 |          |
-| External    |                 |          |
-| Construct   |                 |          |
-| Conclusion  |                 |          |
+| Internal    |Responden asal isi atau pengen "nyenengin" peneliti (bias jawaban) |Kuesioner dibikin anonim dan dikasih tau kalo jawaban nggak ngaruh ke nilai apapun |
+| External    |Responden kebanyakan cuma anak muda, jadi nggak mewakili turis tua |Pas bagi kuesioner, usahain dapet profil umur yang beda-beda (stratified) |
+| Construct   |Pertanyaan kuesioner mungkin kurang pas buat ngukur "kepuasan" |Pake indikator dimensi dari jurnal Lee dkk (2017) biar pertanyaannya valid secara teori |
+| Conclusion  |Jumlah orang yang ngetes terlalu dikit (sampel nggak cukup) |Targetin minimal 100 orang biar hasil uji statistiknya kuat dan sah |
 
 Statistical Plan:
-  Uji statistik   : ____________________
-  Justifikasi      : ____________________
-  Alpha            : ____________________
-  Effect size min  : ____________________
+  Uji statistik    : Independent Samples T-Test 
+  Justifikasi      : Soalnya saya mau ngebandingin rata-rata skor kepuasan dari dua kelompok yang beda (kelompok standar vs kelompok full fitur)
+  Alpha            : 0,05 (Standar skripsi lah, tingkat kesalahan 5%)
+  Effect size min  : 0,5 (Cohen's d). Biar perbedaannya nggak cuma keliatan di angka, tapi emang ada efek nyata di lapangan.
 ```
 
 ---
@@ -106,13 +106,13 @@ Statistical Plan:
 
 Susun desain eksperimen berdasarkan RQ, variabel, dan sistem dari WS-04 sampai WS-06.
 
-**RQ:** __________________________________________________
-**Tipe eksperimen:** [ ] Comparison / [ ] Ablation / [ ] Parameter
+**RQ:** Apakah dimensi Smart Tourism Technology (Informativeness, Accessibility, Interactivity, Personalization) berpengaruh secara signifikan terhadap peningkatan pengalaman wisatawan (skor kepuasan) di destinasi wisata digital?
+**Tipe eksperimen:** [ ] Comparison / [✓] Ablation / [ ] Parameter
 
 | Kondisi | Deskripsi | IV Value | CV Settings |
 |---------|-----------|----------|-------------|
-| Control | *Contoh: RF baseline dari literatur* | *RF* | *Dataset X, 80:20 split, seed 42* |
-| Treatment | | | |
+| Control |Sistem dasar tanpa fitur kustomisasi/rekomendasi |Informativeness, Accessibility, Interactivity (Modul Personalization dimatikan) |Dataset destinasi yang sama, durasi uji coba 15 menit, perangkat (smartphone) dengan spesifikasi setara |
+| Treatment |Sistem lengkap sesuai dengan desain arsitektur penuh |Semua dimensi aktif (Informativeness, Accessibility, Interactivity, Personalization) |Dataset destinasi yang sama, durasi uji coba 15 menit, perangkat (smartphone) dengan spesifikasi setara |
 
 ---
 
@@ -122,14 +122,14 @@ Evaluasi apakah desain eksperimen di Latihan 1 sudah fair.
 
 | Kriteria | Status | Detail |
 |----------|--------|--------|
-| Dataset identik | *Contoh: ✅ — sama-sama pakai CIC-MalMem-2022* | |
-| Preprocessing setara | | |
-| Tuning effort setara | | |
-| Environment identik | | |
-| Metrik evaluasi sama | | |
+| Dataset identik |✅ |Semua partisipan melihat informasi destinasi, foto, dan deskripsi wisata yang sama dari database pusat |
+| Preprocessing setara |✅ |Data mentah dari log user (klik dan durasi) dibersihkan dan dihitung dengan rumus yang sama sebelum masuk ke analisis statistik |
+| Tuning effort setara |✅ |Tidak ada perlakuan khusus pada kecepatan server untuk salah satu grup. Keduanya mendapatkan performa aplikasi yang sama stabilnya |
+| Environment identik |✅ |Pengujian dilakukan menggunakan perangkat yang spesifikasinya setara (misal: pengujian di laboratorium komputer atau browser yang seragam) |
+| Metrik evaluasi sama |✅ |Semua responden mengisi kuesioner kepuasan yang butir-butir pertanyaannya sama persis |
 
-**Ada yang tidak fair?** [ ] Ya / [ ] Tidak
-> Jika ya, bagaimana cara memperbaikinya? ________________
+**Ada yang tidak fair?** [ ] Ya / [✓] Tidak
+> Jika tidak, bagaimana cara memperbaikinya? Karena konfigurasi sistem dikunci melalui file config (seperti yang direncanakan di WS-06), sehingga perbedaan hasil murni karena aktif/tidaknya fitur Personalization, bukan karena faktor teknis lainnya.
 
 ---
 
@@ -139,14 +139,14 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 
 | Threat Type | Ancaman Spesifik | Mitigasi |
 |-------------|-----------------|----------|
-| Internal | *Contoh: Data leakage antara train-test* | *Contoh: Gunakan stratified split, validasi tidak ada overlap* |
-| External | | |
-| Construct | | |
-| Conclusion | | |
+| Internal |Effect Bias: Responden mungkin menjawab kuesioner dengan skor tinggi hanya karena merasa tidak enak pada peneliti |Menggunakan sistem kuesioner anonim dan menjelaskan bahwa data mereka tidak akan memengaruhi nilai atau reputasi mereka |
+| External |Selection Bias: Jika semua responden adalah mahasiswa IT, hasil ini mungkin tidak berlaku untuk wisatawan umum (orang tua atau orang non-IT) |Berusaha menyebarkan uji coba ke luar lingkungan kampus atau melibatkan kelompok usia yang lebih luas agar sampel lebih representatif |
+| Construct |Metrik Kurang Pas: Skor kepuasan mungkin hanya mencerminkan "senang sesaat" karena tampilan aplikasi bagus, bukan karena kegunaan STT |Menggunakan kuesioner yang sudah tervalidasi dari jurnal (seperti Lee et al., 2017) yang spesifik mengukur efektivitas dimensi STT |
+| Conclusion |Sample Size: Jumlah orang yang ikut eksperimen terlalu sedikit sehingga hasilnya tidak bisa dianggap mewakili pola secara umum |Menetapkan target minimal 100 responden untuk menjamin bahwa hasil uji regresi atau T-test memiliki statistical power yang cukup |
 
-**Ancaman mana yang paling sulit dimitigasi?** _____________
+**Ancaman mana yang paling sulit dimitigasi?** External Validity (Generalisasi hasil).
 **Mengapa?**
-> ___________________________________________________
+> Karena sulit untuk menjamin bahwa sistem STT yang sukses di satu destinasi (misal: museum digital) akan sukses juga jika diterapkan di destinasi yang sifatnya terbuka seperti wisata alam, karena kebutuhan informasi wisatawannya pasti berbeda.
 
 ---
 
@@ -155,6 +155,6 @@ Identifikasi ancaman validitas untuk desain eksperimen ini.
 > Sebuah paper melaporkan "metode kami mengalahkan semua baseline." Apa 3 pertanyaan pertama yang harus diajukan untuk mengevaluasi klaim ini?
 
 **Jawaban:**
-1. ___________________________________________________
-2. ___________________________________________________
-3. ___________________________________________________
+1. Apakah perbandingannya dilakukan secara adil (Fair Comparison)? Kita perlu mempertanyakan apakah metode baseline (pembanding) diberikan perlakuan, parameter, dan sumber daya yang sama optimalnya dengan metode yang diusulkan, atau jangan-jangan metode baseline hanya dijalankan dengan setelan default sementara metode baru dioptimalkan secara berlebihan.
+2. Bagaimana kondisi lingkungan pengujian dan dataset yang digunakan? Penting untuk mengevaluasi apakah pengujian dilakukan pada dataset yang sama (identik) dan lingkungan (hardware/software) yang seragam. Klaim "mengalahkan" sering kali tidak valid jika metode baru hanya unggul di satu dataset spesifik yang sudah sangat dikenal oleh peneliti (data snooping).
+3. Apakah perbedaan hasilnya signifikan secara statistik? Klaim keunggulan tidak boleh hanya dilihat dari selisih angka rata-rata yang tipis. Kita harus menanyakan hasil uji signifikansi (seperti P-value) untuk memastikan bahwa kemenangan metode tersebut memang nyata secara ilmiah dan bukan karena kebetulan atau fluktuasi acak pada data.
