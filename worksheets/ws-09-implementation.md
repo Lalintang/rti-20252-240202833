@@ -63,32 +63,32 @@ Capai **repeatability** dulu, baru **reproducibility**.
 EXPERIMENT SETUP DOCUMENTATION
 
 Hardware:
-  CPU     : ____________________
-  RAM     : ____________________
-  GPU     : ____________________
-  Storage : ____________________
+  CPU     : AMD Ryzen 5 5600H (6 Cores, 12 Threads)
+  RAM     : 16 GB DDR4 Dual-Channel
+  GPU     : Integrated AMD Radeon Graphics (CPU-only untuk running skrip statistik)
+  Storage : SSD NVMe 512 GB 
 
 Software:
-  OS        : ____________________
-  Runtime   : ____________________
-  Framework : ____________________
+  OS        : Windows 11 Home 64-bit
+  Runtime   : Python 3.10.11 & Node.js v18.16.0
+  Framework : Express.js (Backend API), Flask v2.3.2 (Data Analytics)
 
 Dependencies:
 | Library | Version | Sumber | Hash/Checksum |
 |---------|---------|--------|---------------|
-|         |         |        |               |
-|         |         |        |               |
+| statsmodels  | 0.14.0   | pip  | sha256-... |
+| scipy        | 1.10.1   | pip  | sha256-... |
 
 Konfigurasi:
-  Config file     : ____________________
-  Random seed     : ____________________
-  Hyperparameters : ____________________
+  Config file     : config.json / .env.example
+  Random seed     : 42
+  Hyperparameters : alpha_threshold = 0.05, ablat_mode = "full_vs_control"
 
 Reproducibility Check:
-  [ ] Dependency terdokumentasi (requirements.txt / lock file)
-  [ ] Seed ditetapkan di semua level (Python, NumPy, framework)
-  [ ] Config di version control
-  [ ] README instruksi reproduksi lengkap
+  [✓] Dependency terdokumentasi (requirements.txt & package.json)
+  [✓] Seed ditetapkan di semua level (Python, NumPy, PostgreSQL sequence)
+  [✓] Config di version control (file .env di-ignore, template .env.example masuk Git)
+  [✓] README instruksi reproduksi lengkap
 ```
 
 ---
@@ -99,23 +99,23 @@ Dokumentasikan environment untuk eksperimen Anda (boleh environment saat ini ata
 
 | Komponen | Spesifikasi |
 |----------|------------|
-| CPU | *Contoh: Intel Core i7-12700H, 14 Core* |
-| RAM | *Contoh: 32 GB DDR5* |
-| GPU | *Contoh: NVIDIA RTX 3060 6GB / CPU-only jika tidak ada GPU* |
-| OS | *Contoh: Ubuntu 22.04 LTS / Windows 11* |
-| Runtime | |
-| Framework | |
-| Random Seed | |
+| CPU | AMD Ryzen 5 5600H |
+| RAM | 16 GB DDR4 |
+| GPU | CPU-only (tidak memerlukan akselerasi CUDA GPU untuk regresi) |
+| OS | Windows 11 64-bit |
+| Runtime | Python 3.10.11 & Node.js v18.16.0 |
+| Framework | Flask v2.3.2 (Python) & Express.js v4.18.2 (Node) |
+| Random Seed | 42  |
 
 **Dependencies (minimal 5):**
 
 | Library | Version | Alasan Dibutuhkan |
 |---------|---------|-------------------|
-| *Contoh: scikit-learn* | *1.3.2* | *Klasifikasi + evaluasi metrik* |
-| | | |
-| | | |
-| | | |
-| | | |
+|statsmodels | 0.14.0 | Untuk kalkulasi uji Regresi Linear Berganda (melihat pengaruh X1, X2, X3, X4 secara simultan). |
+|scipy | 1.10.1 | Menghitung nilai P-value dan melakukan uji-t (T-test) guna menguji hipotesis H1. |
+|pandas | 2.0.2 | Membaca file .csv hasil ekspor dari komponen Survey Engine aplikasi. |
+|pg (node-postgres) | 8.11.0 | Driver untuk menghubungkan modul backend aplikasi ke database PostgreSQL. |
+|dotenv | 16.0.3 |Membaca file .env untuk melakukan toggle activation pada modul sistem pariwisata. |
 
 ---
 
@@ -125,18 +125,18 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 
 | Run | Seed | Metrik Utama | Hasil Sama? |
 |-----|------|-------------|-------------|
-| 1 | *Contoh: 42* | *Contoh: Accuracy* | — |
-| 2 | | | [ ] Ya / [ ] Tidak |
-| 3 | | | [ ] Ya / [ ] Tidak |
+| 1 | 42 | R-Square & P-value | — |
+| 2 | 42 | R-Square & P-value | [✓] Ya / [ ] Tidak |
+| 3 | 42 | R-Square & P-value | [✓] Ya / [ ] Tidak |
 
 **Jika hasil berbeda, kemungkinan penyebab:**
 > ___________________________________________________
 
 **Checklist kontrol yang sudah diterapkan:**
-- [ ] Random seed di-set di semua level
-- [ ] Tidak ada background process yang mengganggu
-- [ ] Cache dibersihkan antar-run
-- [ ] Config file yang sama untuk semua run
+- [✓] Random seed di-set di semua level
+- [✓] Tidak ada background process yang mengganggu
+- [✓] Cache dibersihkan antar-run
+- [✓] Config file yang sama untuk semua run
 
 ---
 
@@ -145,25 +145,39 @@ Rancang tes repeatability sederhana: jalankan kode yang sama 3× di environment 
 Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 ```
-# Judul Eksperimen: ____________________
-
+# Judul Eksperimen: Evaluasi Dimensi Kualitas Smart Tourism Technology Terhadap Tingkat Kepuasan Wisatawan Aplikasi Daerah (Studi Kuantitatif Berbasis Teori Lee et al., 2017)
 ## 1. Environment
-> (Salin spesifikasi dari Latihan 1)
+> OS: Windows 11 / Ubuntu 22.04 LTS
+  Runtime: Python 3.10.11, Node.js v18.16.0
+  DB: PostgreSQL 15
 
 ## 2. Installation
-> (Langkah instalasi, misal: "pip install -r requirements.txt")
-
+> 1. Clone repositori ini ke komputer lokal.
+  2. Install dependency backend aplikasi pariwisata:
+     $ npm install
+  3. Install dependency skrip pengolah data statistik:
+     $ pip install -r requirements.txt
 ## 3. Data
-> (Deskripsi data: sumber, format, ukuran)
-
+> - Sumber: Hasil ekspor data mentah kuesioner skala       Likert teragregasi (100 sampel).
+  - Format: `dataset_responses.csv`
+  - Atribut: Skor rata-rata Informativeness,       Accessibility, Interactivity, Personalization, dan User Satisfaction Score.
 ## 4. Execution
-> (Command untuk menjalankan eksperimen)
+> Untuk menjalankan pengujian regresi dan melihat signifikansi p-value, ketik command:
+$ python run_regression_analysis.py
 
 ## 5. Configuration
-> (File config yang digunakan + parameter kunci)
+> Pengaturan eksperimen dikontrol secara eksternal melalui file `config.json`:
+{
+  "alpha_threshold": 0.05,
+  "random_seed": 42,
+  "ablation_mode": "full_system"
+}
 
 ## 6. Expected Output
-> (Contoh output yang diharapkan + format)
+> Terminal akan menampilkan hasil ringkasan statistik berupa:
+- Nilai R-Square (Koefisien Determinasi)
+- Nilai F-statistic dan Signifikansi F (Uji Simultan)
+- Nilai P-value untuk tiap variabel (X1, X2, X3, X4) untuk pembuktian hipotesis H1.
 ```
 
 ---
@@ -172,6 +186,6 @@ Tulis README minimum untuk eksperimen Anda (6 komponen wajib).
 
 > Apakah eksperimen Anda saat ini bisa direproduksi oleh orang lain tanpa bantuan Anda? Komponen apa yang masih hilang?
 
-**Level saat ini:** [ ] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
+**Level saat ini:** [✓] Repeatability / [ ] Reproducibility / [ ] Belum keduanya
 **Komponen yang belum terdokumentasi:**
-> ___________________________________________________
+> Dokumentasi mengenai langkah restore dump file database awal (.sql) untuk skema tabel PostgreSQL dan seeding data awal destinasi pariwisata belum ditulis di README. Akibatnya, orang lain yang mau mencoba mereplikasi sistem ini harus membuat skema database secara manual dari nol.
