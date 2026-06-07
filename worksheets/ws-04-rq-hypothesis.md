@@ -152,7 +152,7 @@ Lengkapi rantai dari RQ hingga metode analisis.
 | Analysis method | Regresi Linear Berganda (untuk melihat pengaruh tiap variabel IV ke DV) |
 
 **Apakah rantai lengkap?** [✓] Ya / [ ] Tidak
-> Jika tidak, tahap mana yang perlu direvisi? ______________
+> Jika tidak, tahap mana yang perlu direvisi?
 
 ---
 
