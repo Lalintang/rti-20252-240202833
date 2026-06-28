@@ -70,22 +70,22 @@ EXECUTION PLAN
 
 | Run # | Skenario | Seed | Parameter | Status | Waktu | Output File |
 |-------|----------|------|-----------|--------|-------|-------------|
-| 1     |          |      |           |        |       |             |
-| 2     |          |      |           |        |       |             |
-| 3     |          |      |           |        |       |             |
-| ...   |          |      |           |        |       |             |
+| 1     | Analisis Konsep Smart Tourism  |   42   |  Jurnal Smart Tourism  | Planned | 10 menit | hasil_run1.do |
+| 2     | Analisis Definisi Smart Tourism |  123 |  Studi Literatur | Planned | 10 menit | hasil_run2.do |
+| 3     | Analisis Komponen Smart Tourism | 456  |IoT, AI, Cloud Computing |Planned | Planned | hasil_run3.doc |
+| 4     |Analisis Implementasi Smart Tourism  | 789 |Aplikasi, AR, NFC | Planned | 15 menit | hasil_run4.do  |
+| 5     | Analisis Indikator Smart Tourism | 101 |Kenyamanan, Sharing, Dukungan Masyarakat | Planned | 10 menit | hasil_run5.do  |
 
-Jumlah runs per skenario : ____
-Total runs               : ____
-
+Jumlah runs per skenario : 1
+Total runs               : 5
 DATA LOG (per run):
-  Run ID    : ____________________
-  Timestamp : ____________________
-  Skenario  : ____________________
-  Input     : ____________________
-  Output    : ____________________
-  Anomali   : ____________________
-  Catatan   : ____________________
+  Run ID    : run-001
+  Timestamp : 23-06-2026 10:00
+  Skenario  : Analisis Konsep Smart Tourism
+  Input     : Jurnal "Konsep Smart Tourism sebagai Implementasi Digitalisasi di Bidang Pariwisata"
+  Output    : Definisi dan konsep Smart Tourism berhasil diidentifikasi
+  Anomali   : Tidak ada
+  Catatan   : Data sesuai dengan tujuan penelitian
 ```
 
 ---
@@ -96,15 +96,15 @@ Susun execution plan untuk eksperimen Anda. Tentukan skenario, jumlah run, dan s
 
 | Run # | Skenario | Seed | Parameter Kunci | Status |
 |-------|----------|------|----------------|--------|
-| *1* | *Contoh: BERT-base, DS-1* | *42* | *lr=2e-5, epoch=10* | *Planned* |
-| *2* | *BERT-base, DS-1* | *123* | *lr=2e-5, epoch=10* | *Planned* |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| 1 |Analisis Jurnal Smart Tourism| 42 | Artikel Utama | Planned |
+| 2 | Analisis Definisi Smart Tourism | 123 | Fokus Konsep | Planned |
+| 3 |Analisis Komponen Smart Tourism |456 |IoT, AI, Cloud Computing |Planned |
+| 4 |Analisis Implementasi Smart Tourism |789 |Aplikasi, AR, NFC |Planned |
+| 5 |Analisis Indikator Keberhasilan |101 |Kenyamanan, Sharing, Dukungan Masyarakat |Planned |
 
-**Total skenario:** ____
-**Run per skenario:** ____
-**Total run keseluruhan:** ____
+**Total skenario:** 5
+**Run per skenario:** 1
+**Total run keseluruhan:** 5
 
 ---
 
@@ -115,25 +115,25 @@ Desain format data log untuk eksperimen Anda. Tentukan field apa saja yang akan 
 **Identitas:**
 | Field | Contoh |
 |-------|--------|
-| Run ID | *run-001* |
-| Timestamp | *2025-03-15T10:30:00* |
-| | |
+| Run ID | run-001 |
+| Timestamp |2026-06-23 10:00 |
+|Skenario |Analisis Smart Tourism |
 
 **Konfigurasi:**
 | Field | Contoh |
 |-------|--------|
-| Seed | *42* |
-| Code version | *commit abc1234* |
-| | |
+| Seed | 42 |
+|Sumber Data  | Jurnal Smart Tourism |
+|Metode |Studi Literatur |
 
 **Hasil:**
 | Metrik | Tipe Data | Range Valid |
 |--------|----------|-------------|
-| *Contoh: Accuracy* | *float* | *0.0 – 1.0* |
-| | | |
-| | | |
+| Jumlah Komponen | Integer | > 0 |
+|Jumlah Implementasi | Integer| > 0 |
+|Jumlah Indikator |Integer | > 0 |
 
-**Format output:** [ ] CSV / [ ] JSON / [ ] Database / [ ] Lainnya: ____
+**Format output:** [☑] CSV / [☑] JSON / [ ] Database / [ ] Lainnya: ____
 
 ---
 
@@ -143,10 +143,10 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 
 | Jenis Anomali | Contoh | Tindakan |
 |---------------|--------|----------|
-| Run gagal (crash) | *Contoh: OOM pada batch_size=64* | *Contoh: Dokumentasi, re-run batch_size=32, catat perubahan* |
-| Hasil ekstrem | | |
-| Waktu eksekusi anomali | | |
-| Inkonsistensi dengan run lain | | |
+| Run gagal (crash) | File jurnal tidak dapat dibuka | Dokumentasi lalu ulangi analisis |
+| Hasil ekstrem | Jumlah komponen berbeda jauh dengan literatur lain | Cek ulang sumber dan catat perbedaan |
+| Waktu eksekusi anomali | Analisis lebih lama dari biasanya | Dokumentasikan penyebabnya |
+| Inkonsistensi dengan run lain | Definisi berbeda antar jurnal | Bandingkan dan catat sebagai temuan |
 
 **Prinsip:** Detect → Investigate → Document → Decide
 
@@ -157,6 +157,6 @@ Rencanakan bagaimana menangani anomali. Untuk setiap jenis, tentukan langkah yan
 > Pernahkah Anda melaporkan hasil riset/tugas dari single run? Apa risikonya? Bagaimana multiple run mengubah kepercayaan terhadap hasil?
 
 **Pengalaman sebelumnya:**
-> ___________________________________________________
+> Sebelumnya saya sering mengambil hasil hanya dari satu kali analisis atau satu sumber jurnal. Cara ini berisiko menghasilkan kesimpulan yang kurang akurat karena tidak ada pembanding dan validasi dari sumber lain.
 **Yang akan dilakukan berbeda:**
-> ___________________________________________________
+> Saya akan menggunakan beberapa analisis dan membandingkan hasil dari berbagai bagian jurnal atau sumber pendukung. Dengan demikian hasil penelitian menjadi lebih valid, objektif, dan dapat dipertanggungjawabkan.
