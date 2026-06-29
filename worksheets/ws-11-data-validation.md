@@ -66,30 +66,29 @@ Jika gagal di langkah awal → tidak perlu lanjut.
 DATA VALIDATION CHECKLIST
 
 Completeness:
-  [ ] Semua skenario tercakup
-  [ ] Jumlah run sesuai rencana
-  [ ] Tidak ada file output hilang
-  Missing: ____ dari ____ data points
+  [✔] Semua skenario tercakup
+  [✔] Jumlah run sesuai rencana
+  [✔] Tidak ada file output hilang
+  Missing: 0 dari 5 data points
 
 Format Consistency:
-  [ ] Semua file format sama (CSV/JSON/...)
-  [ ] Header konsisten
-  [ ] Tipe data konsisten (numerik tetap numerik)
+  [✔] Semua file format sama (CSV/JSON/...)
+  [✔] Header konsisten
+  [✔] Tipe data konsisten (numerik tetap numerik)
 
 Range & Logic:
-  [ ] Nilai dalam range masuk akal
-  [ ] Tidak ada waktu negatif
-  [ ] Metrik 0–100%, tidak di luar range
-  Anomali ditemukan: ____________________
-
+  [✔] Nilai dalam range masuk akal
+  [✔] Tidak ada waktu negatif
+  [✔] Metrik 0–100%, tidak di luar range
+  Anomali ditemukan: Tidak ada
 Cross-Validation:
-  [ ] Run identik → hasil mendekati
-  [ ] Trend konsisten dengan ekspektasi teori
+  [✔] Run identik → hasil mendekati
+  [✔] Trend konsisten dengan ekspektasi teori
 
 Keputusan:
-  [ ] Data siap analisis
+  [✔] Data siap analisis
   [ ] Perlu cleaning
-  [ ] Perlu re-run (skenario: ____)
+  [ ] Perlu re-run (skenario:-)
 ```
 
 ---
@@ -100,43 +99,43 @@ Verifikasi apakah semua data yang direncanakan sudah terkumpul.
 
 | Skenario | Run Direncanakan | Run Tercatat | Missing | Alasan |
 |----------|-----------------|-------------|---------|--------|
-| *Contoh: BERT, DS-1* | *10* | *10* | *0* | *—* |
-| *LSTM, DS-3* | *10* | *8* | *2* | *OOM pada run 7 & 9* |
-| | | | | |
-| | | | | |
+| Analisis Konsep Smart Tourism | 1 | 1 | 0| Tidak ada data yang hilang |
+| Analisis Definisi | 1 | 1 | 0 | Seluruh data berhasil dikumpulkan |
+| Analisis Komponen | 1 | 1 | 0 | Valid |
+| Analisis Implementasi | 1 | 1 | 0 |  Lengkap |
+| Analisis Indikator | 1 | 1 | 0 | Sesuai rencana |
 
-**Total expected:** ____ | **Total actual:** ____ | **Missing:** ____
+**Total expected:** 5| **Total actual:** 5 | **Missing:** 0 
 
 **Keputusan untuk data missing:**
-> ___________________________________________________
-
+> Tidak ada data yang hilang sehingga seluruh data dapat digunakan untuk tahap analisis.
 ---
 
 ## Latihan 2 — Anomaly Investigation
 
 Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
-**Dataset sampel (atau data Anda sendiri):**
+**Dataset sampel (atau data Anda sendiri):** 
 
-| Run | Accuracy (%) |
+| Run | Jumlah Komponen Smart Tourism |
 |-----|-------------|
-| 1 | *91.2* |
-| 2 | *90.8* |
-| 3 | *91.5* |
-| 4 | *78.3* |
-| 5 | *91.0* |
+| 1 | 4 |
+| 2 | 4 |
+| 3 | 4 |
+| 4 | 4 |
+| 5 | 4 |
 
-**Deteksi outlier:**
-- Q1 = ____ | Q3 = ____ | IQR = ____
-- Batas bawah (Q1 - 1.5×IQR) = ____
-- Batas atas (Q3 + 1.5×IQR) = ____
-- Outlier terdeteksi: ____
+**Deteksi outlier:** Tidak ditemukan data yang menyimpang karena seluruh informasi berasal dari satu jurnal utama dan telah diperiksa kesesuaiannya.
+- Q1 = 4 | Q3 = 4 | IQR = 0
+- Batas bawah (Q1 - 1.5×IQR) = 4
+- Batas atas (Q3 + 1.5×IQR) = 4
+- Outlier terdeteksi: Tidak ada
 
 **Investigasi (untuk setiap outlier):**
 
 | Outlier | Nilai | Kemungkinan Penyebab | Keputusan |
 |---------|-------|---------------------|-----------|
-| *Run 4* | *78.3* | *Contoh: thermal throttling setelah 3 run berturut* | *Re-run dengan cooling interval* |
+| tidak ada | - | Hasil analisis konsisten pada setiap run | Data digunakan untuk analisis |
 
 ---
 
@@ -144,12 +143,12 @@ Periksa data Anda untuk anomali. Gunakan metode IQR atau z-score.
 
 Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
-**1. Completeness:** ____% data terkumpul
-**2. Format:** [ ] Konsisten / [ ] Ada inkonsistensi: ____
-**3. Range check (anomali):** ____
-**4. Logic check:** [ ] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
+**1. Completeness:** 100% data terkumpul
+**2. Format:** [✔] Konsisten / [ ] Ada inkonsistensi: ____
+**3. Range check (anomali):** Tidak ditemukan anomali. Seluruh data dan informasi sesuai dengan hasil analisis pada jurnal.
+**4. Logic check:** [✔] Parameter sesuai plan / [ ] Ada ketidaksesuaian: ____
 
-**Kesimpulan:** [ ] Data siap analisis / [ ] Perlu tindakan: ____
+**Kesimpulan:** [✔] Data siap analisis / [ ] Perlu tindakan: Tidak ada. Seluruh data telah lengkap, konsisten, dan sesuai dengan rencana penelitian sehingga dapat langsung digunakan untuk analisis. 
 
 ---
 
@@ -157,5 +156,5 @@ Buat laporan validasi ringkas untuk dataset eksperimen Anda.
 
 > Apa perbedaan antara "data yang benar" dan "data yang dipercaya"? Mengapa proses validasi formal diperlukan meskipun data dikumpulkan secara otomatis?
 
-> ___________________________________________________
-> ___________________________________________________
+> Data yang benar adalah data yang sesuai dengan sumber aslinya, sedangkan data yang dipercaya adalah data yang sudah melalui proses pemeriksaan sehingga layak digunakan sebagai dasar analisis.
+> Validasi formal tetap diperlukan meskipun data dikumpulkan secara otomatis karena masih ada kemungkinan terjadi kesalahan, data tidak lengkap, atau ketidaksesuaian format. Dengan validasi, kualitas data lebih terjamin sehingga hasil penelitian menjadi lebih akurat dan dapat dipertanggungjawabkan.
